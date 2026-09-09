@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulse / Tweet Sentiment Analyzer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <main class="shell">
+        <header class="topbar">
+            <a class="brand" href="/" aria-label="Pulse home"><span class="brand-mark">P</span><span>pulse<span class="brand-dot">.</span></span></a>
+            <span class="status"><span class="status-dot"></span> LOCAL MODEL ONLINE</span>
+        </header>
+
+        <section class="hero" aria-labelledby="pageTitle">
+            <div class="hero-copy">
+                <p class="eyebrow">PROJECT 02 / TEXT CLASSIFICATION</p>
+                <h1 id="pageTitle">Read the feeling<br><em>between the lines.</em></h1>
+                <p class="intro">A lightweight sentiment lens trained on real-world tweets. Drop in a thought, a hot take, or a little bit of Taglish.</p>
+            </div>
+            <div class="hero-note" aria-hidden="true"><span>01</span><span>EN / FIL / TL</span><span>TF-IDF + RF</span></div>
+        </section>
+
+        <section class="workspace" aria-label="Sentiment analysis workspace">
+            <div class="input-panel">
+                <div class="panel-heading"><span>COMPOSE</span><span class="panel-rule"></span><span class="mono">280 MAX</span></div>
+                <form id="tweetForm">
+                    <label for="tweetText">What’s on your timeline?</label>
+                    <textarea id="tweetText" name="tweet" maxlength="280" placeholder="e.g. Finally finished my project! Proud of this one ✨" required></textarea>
+                    <div class="form-footer">
+                        <span id="characterCounter" class="counter">0 / 280</span>
+                        <button type="submit"><span>Analyze sentiment</span><span class="button-arrow" aria-hidden="true">↗</span></button>
+                    </div>
+                </form>
+                <div class="examples" aria-label="Example tweets">
+                    <span>TRY ONE</span>
+                    <button type="button" class="example-chip" data-example="Ang saya ng araw na 'to! We finally made it.">Positive</button>
+                    <button type="button" class="example-chip" data-example="I waited all day and they cancelled again. Sobrang nakakainis.">Negative</button>
+                    <button type="button" class="example-chip" data-example="Meeting at 3pm, then heading home.">Neutral</button>
+                </div>
+            </div>
+
+            <aside id="resultBox" class="result-box empty" aria-live="polite">
+                <div class="result-placeholder"><span class="placeholder-line"></span><span class="placeholder-line short"></span><p>Your reading will appear here.</p></div>
+            </aside>
+        </section>
+
+        <footer class="footer"><span>BUILT WITH TF-IDF + RANDOM FOREST</span><span>PROJECT 2 / 2026</span></footer>
+    </main>
+    <script src="/script.js"></script>
+</body>
+</html>

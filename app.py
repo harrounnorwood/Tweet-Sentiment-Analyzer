@@ -392,6 +392,16 @@ def predict():
     })
 
 
+@app.errorhandler(Exception)
+def handle_unexpected_error(error):
+    if request.path == "/predict":
+        print("Prediction error:", error)
+        return jsonify({
+            "error": "The prediction service is temporarily unavailable. Please try again."
+        }), 500
+    raise error
+
+
 # ============================================================
 # 12. START THE FLASK DEVELOPMENT SERVER
 # ============================================================

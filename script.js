@@ -87,7 +87,10 @@ tweetForm.addEventListener("submit", async (event) => {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ tweet })
         });
-        const data = await response.json();
+        const contentType = response.headers.get("content-type") || "";
+        const data = contentType.includes("application/json")
+            ? await response.json()
+            : { error: "The server returned an invalid response. Please try again." };
         if (!response.ok) throw new Error(data.error || "Prediction failed.");
         renderResult(data);
     } catch (error) {

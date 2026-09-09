@@ -251,10 +251,8 @@ def predict():
         # Technical detail sa server logs lang.
         print("Translation error:", error)
 
-        # Simple message lang ang ibalik sa browser.
-        return jsonify({
-            "error": "The tweet could not be translated."
-        }), 503
+        # Gemini fail man, tuloy pa rin ang local model gamit ang original tweet.
+        translated_tweet = tweet
 
 
     # Tingnan kung may actual translation na nangyari.
